@@ -769,32 +769,32 @@
                             <form method='POST' id="form_login" autocomplete="off">
                                 <table>
                                     <tr id="trtest">
-										<td style="position: relative;">
-											<div id="divtest">
-												<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                                        <td style="position: relative;">
+                                            <div id="divtest">
+                                                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
                                                 <select name="mapel" id="mapel">
-													<option value="Loading">PILIH MAPEL</option>
-													<option value="https://xnabil354.github.io/scoone-ujian/biologi.html">Biologi XII</option>
-													<option value="https://xnabil354.github.io/scoone-ujian/matp.html">Matematika Pem XII</option>
-													<option value="https://xnabil354.github.io/scoone-ujian/matw.html">Matematika Wajib XII</option>
-													<option value="https://xnabil354.github.io/scoone-ujian/eko.html">Ekonomi XII</option>
-													<option value="https://xnabil354.github.io/scoone-ujian/bindo.html">Bahasa Indo XII</option>
-													<option value="https://xnabil354.github.io/scoone-ujian/pkwu.html">PKWU XII</option>
-													<option value="https://xnabil354.github.io/scoone-ujian/pjok.html">PJOK XII</option>
-													<option value="https://xnabil354.github.io/scoone-ujian/bingw.html">Bahasa Ing XII</option>
-													<option value="https://xnabil354.github.io/scoone-ujian/kimia.html">Kimia XII</option>
-													<option value="https://xnabil354.github.io/scoone-ujian/fisika.html">Fisika XII</option>
-												</select>
-											</div>
-										</td>
-									</tr>		
+                                                    <option value="Loading">PILIH MAPEL</option>
+                                                    <option value="https://xnabil354.github.io/scoone-ujian/biologi.html">Biologi XII</option>
+                                                    <option value="https://xnabil354.github.io/scoone-ujian/matp.html">Matematika Pem XII</option>
+                                                    <option value="https://xnabil354.github.io/scoone-ujian/matw.html">Matematika Wajib XII</option>
+                                                    <option value="https://xnabil354.github.io/scoone-ujian/eko.html">Ekonomi XII</option>
+                                                    <option value="https://xnabil354.github.io/scoone-ujian/bindo.html">Bahasa Indo XII</option>
+                                                    <option value="https://xnabil354.github.io/scoone-ujian/pkwu.html">PKWU XII</option>
+                                                    <option value="https://xnabil354.github.io/scoone-ujian/pjok.html">PJOK XII</option>
+                                                    <option value="https://xnabil354.github.io/scoone-ujian/bingw.html">Bahasa Ing XII</option>
+                                                    <option value="https://xnabil354.github.io/scoone-ujian/kimia.html">Kimia XII</option>
+                                                    <option value="https://xnabil354.github.io/scoone-ujian/fisika.html">Fisika XII</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>		
                                     <tr>
                                         <td></td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <div id="tombolLogin">
-                                                <button type="button" id="submitlogin" class="btn btn-primary" onchange="redirect()">LOGIN</button>
+                                                <button type="button" id="submitlogin" class="btn btn-primary">LOGIN</button>
                                             </div>
                                             <div id="tombolDaftar"></div>
                                             <div id="tombolRefresh" class="mobileOnly">
@@ -802,6 +802,18 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    
+                                    <script>
+                                    document.getElementById("submitlogin").addEventListener("click", function() {
+                                        var selectedValue = document.getElementById("mapel").value;
+                                        if (selectedValue != "Loading") {
+                                            window.location.href = selectedValue;
+                                        } else {
+                                            alert("Silakan pilih mata pelajaran terlebih dahulu.");
+                                        }
+                                    });
+                                    </script>
+                                    
                                 </table>
                             </form>
                         </div>
