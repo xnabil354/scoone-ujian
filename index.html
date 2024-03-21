@@ -748,9 +748,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            localStorage.setItem("examkey", "xiimipa1");
-        </script>
         <div class='container'>
             <div class='row'>
                 <div class='col-md-12'>
@@ -787,7 +784,7 @@
                                                 </select>
                                             </div>
                                         </td>
-                                    </tr>		
+                                    </tr>        
                                     <tr>
                                         <td></td>
                                     </tr>
@@ -804,15 +801,27 @@
                                     </tr>
                                     
                                     <script>
+                                    // Set localStorage examKey
+                                    localStorage.setItem('examKey', PROCESS.ENV.examkey);
+                                    
                                     document.getElementById("submitlogin").addEventListener("click", function() {
-                                        var selectedValue = document.getElementById("mapel").value;
-                                        if (selectedValue != "Loading") {
-                                            window.location.href = selectedValue;
+                                        var enteredExamKey = prompt("Masukkan exam key:");
+                                    
+                                        // Memeriksa apakah examKey yang dimasukkan sesuai dengan yang disimpan di localStorage
+                                        if (enteredExamKey === localStorage.getItem('examKey')) {
+                                            var selectedValue = document.getElementById("mapel").value;
+                                            if (selectedValue != "Loading") {
+                                                window.location.href = selectedValue;
+                                            } else {
+                                                alert("Silakan pilih mata pelajaran terlebih dahulu.");
+                                            }
                                         } else {
-                                            alert("Silakan pilih mata pelajaran terlebih dahulu.");
+                                            alert("Exam key salah. Silakan coba lagi.");
                                         }
                                     });
                                     </script>
+                                    
+                        
                                     
                                 </table>
                             </form>
@@ -858,7 +867,7 @@
         </div>
     </div>
 </div>
-<script src="https://cbt.sman15jkt.sch.id/wp-content/themes/unbk/archives/js/login-lihat-nilai.js?bv=13.9.0"></script>
+<script src="https://cbt.sman15jkt.sch.id/wp-content/themes/unbk/archives/js/login-lihat-nilai.js?bv=13.9.0"></>
 <input type="hidden" id="mapel" value="">
 <input type="hidden" id="kodetest" value="">
 <div class="container">
