@@ -768,29 +768,20 @@
                             <div style='height :10px'></div>
                             <form method='POST' id="form_login" autocomplete="off">
                                 <table>
-                                    <tr>
-                                        <td style="position: relative;">
-                                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                            <input oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);" type='text' name='username_login' id='username' placeholder="Username"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="position: relative;">
-                                            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-                                            <input type='password' placeholder="Password" name='password' id='password'/>
-                                            <span class="glyphicon glyphicon-eye-open showPassword" aria-hidden="true" id="eye"></span>
-                                        </td>
-                                    </tr>
                                     <tr id="trtest">
 										<td style="position: relative;">
 											<div id="divtest">
 												<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-												<select name="mapel" id="mapel">
+                                                <select name="mapel" id="mapel" onchange="redirect()">
 													<option value="Loading">PILIH MAPEL</option>
 													<option value="https://xnabil354.github.io/scoone-ujian/biologi.html">Biologi XII</option>
 													<option value="https://xnabil354.github.io/scoone-ujian/matp.html">Matematika Pem XII</option>
 													<option value="https://xnabil354.github.io/scoone-ujian/matw.html">Matematika Wajib XII</option>
 													<option value="https://xnabil354.github.io/scoone-ujian/eko.html">Ekonomi XII</option>
+													<option value="https://xnabil354.github.io/scoone-ujian/bindo.html">Bahasa Indo XII</option>
+													<option value="https://xnabil354.github.io/scoone-ujian/pkwu.html">PKWU XII</option>
+													<option value="https://xnabil354.github.io/scoone-ujian/pjok.html">PJOK XII</option>
+													<option value="https://xnabil354.github.io/scoone-ujian/bingw.html">Bahasa Ing XII</option>
 													<option value="https://xnabil354.github.io/scoone-ujian/kimia.html">Kimia XII</option>
 													<option value="https://xnabil354.github.io/scoone-ujian/fisika.html">Fisika XII</option>
 												</select>
@@ -803,7 +794,7 @@
                                     <tr>
                                         <td>
                                             <div id="tombolLogin">
-                                                <button type="button" id="submitlogin" class="btn btn-primary">Login</button>
+                                                <button type="button" id="submitlogin" class="btn btn-primary">XII MIPA 1</button>
                                             </div>
                                             <div id="tombolDaftar"></div>
                                             <div id="tombolRefresh" class="mobileOnly">
@@ -866,7 +857,12 @@
 <div id="blocker"></div>
 <script>
 
-    // Bimasoft HTML DRAG AND DROP
+function redirect() {
+    var selectedValue = document.getElementById("mapel").value;
+    if (selectedValue != "Loading") {
+        window.location.href = selectedValue;
+    }
+}
 
     function allowDrop(ev) {
         ev.preventDefault();
