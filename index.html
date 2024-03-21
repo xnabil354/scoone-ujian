@@ -772,7 +772,7 @@
 										<td style="position: relative;">
 											<div id="divtest">
 												<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-                                                <select name="mapel" id="mapel" onchange="redirect()">
+                                                <select name="mapel" id="mapel">
 													<option value="Loading">PILIH MAPEL</option>
 													<option value="https://xnabil354.github.io/scoone-ujian/biologi.html">Biologi XII</option>
 													<option value="https://xnabil354.github.io/scoone-ujian/matp.html">Matematika Pem XII</option>
@@ -794,7 +794,7 @@
                                     <tr>
                                         <td>
                                             <div id="tombolLogin">
-                                                <button type="button" id="submitlogin" class="btn btn-primary">XII MIPA 1</button>
+                                                <button type="button" id="submitlogin" class="btn btn-primary" onchange="redirect()">LOGIN</button>
                                             </div>
                                             <div id="tombolDaftar"></div>
                                             <div id="tombolRefresh" class="mobileOnly">
@@ -858,7 +858,7 @@
 <script>
 
 function redirect() {
-    var selectedValue = document.getElementById("mapel").value;
+    var selectedValue = document.getElementById("submitlogin").value;
     if (selectedValue != "Loading") {
         window.location.href = selectedValue;
     }
